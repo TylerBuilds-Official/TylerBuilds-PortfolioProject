@@ -1,0 +1,50 @@
+/* ========================================
+   Typography — Base font sizing & rhythm
+   ======================================== */
+
+body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    transition:
+        color var(--transition-speed) ease,
+        background-color var(--transition-speed) ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 1rem; }
+
+p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+code, pre, .mono {
+    font-family: var(--font-mono);
+}
+
+a {
+    color: var(--accent);
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+::selection {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+}

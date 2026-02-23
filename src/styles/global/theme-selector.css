@@ -1,0 +1,94 @@
+/* ========================================
+   Theme Selector
+   ======================================== */
+
+.theme-selector {
+    position: relative;
+}
+
+.theme-selector__trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-card);
+    cursor: pointer;
+    transition:
+        color var(--transition-speed) ease,
+        border-color var(--transition-speed) ease,
+        background-color var(--transition-speed) ease;
+}
+
+.theme-selector__trigger:hover {
+    color: var(--text-primary);
+    border-color: var(--accent);
+}
+
+.theme-selector__dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 160px;
+    padding: 0.5rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    z-index: 200;
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition:
+        opacity var(--transition-speed) ease,
+        transform var(--transition-speed) ease;
+}
+
+.theme-selector__dropdown--open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.theme-selector__option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition:
+        color var(--transition-speed) ease,
+        background-color var(--transition-speed) ease;
+}
+
+.theme-selector__option:hover {
+    color: var(--text-primary);
+    background-color: var(--accent-subtle);
+}
+
+.theme-selector__option--active {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.theme-selector__swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+}
+
+.theme-selector__swatch--dark       { background-color: #0f1117; }
+.theme-selector__swatch--light      { background-color: #f8f9fb; }
+.theme-selector__swatch--midnight   { background-color: #0d1120; }
+.theme-selector__swatch--terminal   { background-color: #0a0a0a; border-color: #33ff33; }
+.theme-selector__swatch--paper      { background-color: #faf8f5; }

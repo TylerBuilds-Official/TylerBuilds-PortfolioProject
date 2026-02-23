@@ -1,0 +1,35 @@
+/* ========================================
+   Footer
+   ======================================== */
+
+.footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background-color: var(--bg-secondary);
+    transition:
+        background-color var(--transition-speed) ease,
+        border-color var(--transition-speed) ease;
+}
+
+.footer__text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.footer__links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.75rem;
+}
+
+.footer__link {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    transition: color var(--transition-speed) ease;
+}
+
+.footer__link:hover {
+    color: var(--accent);
+}

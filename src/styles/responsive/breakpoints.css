@@ -1,0 +1,20 @@
+/* ========================================
+   Responsive Breakpoints
+   ======================================== */
+
+/* Mobile: default styles (no media query needed) */
+
+/* Tablet: 768px+ */
+@media (min-width: 768px) {
+    /* Tablet overrides go here or in section-specific files */
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+    /* Desktop overrides go here or in section-specific files */
+}
+
+/* Wide: 1440px+ */
+@media (min-width: 1440px) {
+    /* Wide screen overrides */
+}

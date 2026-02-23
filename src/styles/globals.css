@@ -1,0 +1,48 @@
+/* ========================================
+   Globals — Master stylesheet import
+   ======================================== */
+
+/* Base */
+@import './base/reset.css';
+@import './base/typography.css';
+
+/* Themes */
+@import './themes/theme-dark.css';
+@import './themes/theme-light.css';
+@import './themes/theme-midnight.css';
+@import './themes/theme-terminal.css';
+@import './themes/theme-paper.css';
+
+/* Layout */
+@import './layout/navbar.css';
+@import './layout/footer.css';
+
+/* Global components */
+@import './global/theme-selector.css';
+
+/* Utilities */
+@import './utilities/helpers.css';
+
+/* Responsive */
+@import './responsive/breakpoints.css';
+
+/* ========================================
+   App Shell
+   ======================================== */
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-root > main {
+    flex: 1;
+    margin-top: var(--nav-height);
+}
