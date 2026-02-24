@@ -33,3 +33,17 @@
 .footer__link:hover {
     color: var(--accent);
 }
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 640px) {
+    .footer {
+        padding: 1.5rem 1rem;
+    }
+
+    .footer__links {
+        gap: 1rem;
+    }
+}

@@ -4,17 +4,32 @@
 
 /* Mobile: default styles (no media query needed) */
 
+/* Small mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.35rem; }
+}
+
 /* Tablet: 768px+ */
-@media (min-width: 768px) {
-    /* Tablet overrides go here or in section-specific files */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
 }
 
 /* Desktop: 1024px+ */
 @media (min-width: 1024px) {
-    /* Desktop overrides go here or in section-specific files */
+    /* Desktop styles — most are already the default */
 }
 
 /* Wide: 1440px+ */
 @media (min-width: 1440px) {
-    /* Wide screen overrides */
+    .container {
+        max-width: 1320px;
+    }
 }

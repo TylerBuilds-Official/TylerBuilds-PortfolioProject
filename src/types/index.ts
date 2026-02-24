@@ -22,6 +22,7 @@ export interface Project {
     highlights: string[];
     metrics?: ProjectMetric[];
     hasDetailPage: boolean;
+    githubUrl?: string;            // FIXME: audit repos — add links for public, remove for private
     image?: string;
 }
 
@@ -30,12 +31,18 @@ export interface TechCategory {
     items: string[];
 }
 
-export interface ExperienceEntry {
+export interface ExperienceInitiative {
     title: string;
-    company: string;
-    period: string;
     description: string;
+    techStack: string[];
     highlights: string[];
+}
+
+export interface ExperienceGroup {
+    company: string;
+    role: string;
+    description: string;
+    initiatives: ExperienceInitiative[];
 }
 
 export type ThemeName = 'dark' | 'light' | 'midnight' | 'terminal' | 'paper';

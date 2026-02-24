@@ -1,0 +1,45 @@
+/* ========================================
+   SectionHeader — Consistent section titles
+   ======================================== */
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-header--center {
+    text-align: center;
+}
+
+.section-header__title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.section-header__accent-bar {
+    display: block;
+    width: 48px;
+    height: 3px;
+    background-color: var(--accent);
+    border-radius: 2px;
+    margin-top: 0.75rem;
+}
+
+.section-header--center .section-header__accent-bar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-header__subtitle {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.section-header--center .section-header__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+}

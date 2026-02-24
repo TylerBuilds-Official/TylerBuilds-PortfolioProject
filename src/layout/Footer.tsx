@@ -24,7 +24,7 @@ function Footer() {
                     TylerBuilds
                 </a>
                 <a
-                    href="https://linkedin.com/in/"
+                    href="https://www.linkedin.com/in/tyler-emery-15a612396/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="footer__link"

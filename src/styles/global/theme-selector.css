@@ -92,3 +92,14 @@
 .theme-selector__swatch--midnight   { background-color: #0d1120; }
 .theme-selector__swatch--terminal   { background-color: #0a0a0a; border-color: #33ff33; }
 .theme-selector__swatch--paper      { background-color: #faf8f5; }
+
+/* ========================================
+   Mobile — inside hamburger menu
+   ======================================== */
+
+@media (max-width: 768px) {
+    .theme-selector__dropdown {
+        right: auto;
+        left: 0;
+    }
+}

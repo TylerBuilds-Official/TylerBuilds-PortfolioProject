@@ -19,6 +19,17 @@
 
 /* Global components */
 @import './global/theme-selector.css';
+@import './global/tag.css';
+@import './global/button.css';
+@import './global/section-header.css';
+@import './global/card.css';
+@import './global/modal.css';
+
+/* Sections */
+@import './sections/hero.css';
+@import './sections/projects.css';
+@import './sections/project-detail.css';
+@import './sections/experience.css';
 
 /* Utilities */
 @import './utilities/helpers.css';

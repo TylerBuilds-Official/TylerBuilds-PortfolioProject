@@ -1,9 +1,13 @@
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
+
 function ContactPage() {
+    useDocumentTitle('Contact');
+
     return (
         <div className="container">
             <section className="section">
                 <h1>Contact</h1>
-                <p>Stub page. Links, CTA, and contact form coming in Phase 4.</p>
+                <p>Coming soon.</p>
             </section>
         </div>
     );

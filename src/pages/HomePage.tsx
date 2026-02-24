@@ -1,11 +1,15 @@
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import HeroSection from '../components/private/hero/HeroSection';
+import ProjectsSection from '../components/private/projects/ProjectsSection';
+
 function HomePage() {
+    useDocumentTitle();
+
     return (
-        <div className="container">
-            <section className="section">
-                <h1>Home — Hero Section</h1>
-                <p>Stub page. Hero, project previews, tech stack, and more coming in Phase 3.</p>
-            </section>
-        </div>
+        <>
+            <HeroSection />
+            <ProjectsSection mode="home" />
+        </>
     );
 }
 

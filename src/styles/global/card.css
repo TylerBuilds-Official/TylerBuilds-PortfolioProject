@@ -1,0 +1,37 @@
+/* ========================================
+   Card — Base card container
+   ======================================== */
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    transition:
+        background-color var(--transition-speed) ease,
+        border-color var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease,
+        transform var(--transition-speed) ease;
+}
+
+.card--interactive {
+    cursor: pointer;
+}
+
+.card--interactive:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.card--flat {
+    box-shadow: none;
+}
+
+.card--elevated {
+    box-shadow: var(--shadow-sm);
+}
+
+.card--elevated:hover {
+    box-shadow: var(--shadow-lg);
+}

@@ -1,0 +1,220 @@
+/* ========================================
+   Projects Section
+   ======================================== */
+
+.projects-section {
+    padding: 5rem 0;
+}
+
+/* Filter bar */
+
+.projects-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.projects-filter__btn {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition:
+        color var(--transition-speed) ease,
+        background-color var(--transition-speed) ease,
+        border-color var(--transition-speed) ease;
+}
+
+.projects-filter__btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.projects-filter__btn--active {
+    color: var(--accent);
+    background-color: var(--accent-subtle);
+    border-color: var(--accent);
+}
+
+/* Grid */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Project Card */
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.project-card__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+}
+
+.project-card__tagline {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.project-card__tech {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.project-card__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+}
+
+/* Detail Modal */
+
+.project-detail__section {
+    margin-bottom: 1.5rem;
+}
+
+.project-detail__section:last-child {
+    margin-bottom: 0;
+}
+
+.project-detail__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.project-detail__text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.project-detail__highlights {
+    padding-left: 1.25rem;
+}
+
+.project-detail__highlights li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0.4rem;
+    list-style: disc;
+}
+
+.project-detail__highlights li::marker {
+    color: var(--accent);
+}
+
+.project-detail__metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.75rem;
+}
+
+.project-detail__metric {
+    padding: 0.75rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    text-align: center;
+}
+
+.project-detail__metric-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-family: var(--font-mono);
+}
+
+.project-detail__metric-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 0.25rem;
+}
+
+.project-detail__metric--placeholder .project-detail__metric-value {
+    opacity: 0.5;
+}
+
+.project-detail__tech {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.project-detail__actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+/* ========================================
+   Homepage variant — no filters, centered CTA
+   ======================================== */
+
+.projects-section--home .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.projects-section__cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 640px) {
+    .projects-section {
+        padding: 3rem 0;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-detail__metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

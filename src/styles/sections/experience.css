@@ -1,0 +1,144 @@
+/* ========================================
+   Experience Section
+   ======================================== */
+
+.experience-page {
+    padding: 4rem 0 5rem;
+}
+
+/* Group */
+
+.experience-group {
+    margin-bottom: 4rem;
+}
+
+.experience-group:last-child {
+    margin-bottom: 0;
+}
+
+.experience-group__header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.experience-group__company {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.experience-group__role {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+}
+
+.experience-group__description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 720px;
+}
+
+/* Initiative grid */
+
+.experience-initiatives {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Initiative card */
+
+.experience-initiative {
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-initiative__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.6rem;
+}
+
+.experience-initiative__description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+}
+
+.experience-initiative__tech {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.experience-initiative__highlights {
+    padding-left: 1.25rem;
+    margin-top: auto;
+}
+
+.experience-initiative__highlights li {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0.35rem;
+    list-style: disc;
+}
+
+.experience-initiative__highlights li::marker {
+    color: var(--accent);
+}
+
+/* ========================================
+   Education — Footnote style
+   ======================================== */
+
+.education-footnote {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.education-footnote__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.education-footnote__degree {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+}
+
+.education-footnote__school {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.education-footnote__status {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 640px) {
+    .experience-initiatives {
+        grid-template-columns: 1fr;
+    }
+}
