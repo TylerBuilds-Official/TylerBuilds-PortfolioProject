@@ -5,11 +5,12 @@
 .tag {
     display: inline-flex;
     align-items: center;
-    padding: 0.25rem 0.65rem;
-    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+    font-size: 0.675rem;
     font-weight: 500;
     font-family: var(--font-mono);
     line-height: 1;
+    letter-spacing: 0.01em;
     border-radius: var(--radius-sm);
     white-space: nowrap;
     transition:
@@ -37,6 +38,6 @@
     font-family: var(--font-body);
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.65rem;
-    letter-spacing: 0.05em;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
 }

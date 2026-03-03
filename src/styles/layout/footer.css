@@ -3,8 +3,8 @@
    ======================================== */
 
 .footer {
-    padding: 2rem;
-    text-align: center;
+    position: relative;
+    padding: 0.75rem 2rem;
     border-top: 1px solid var(--border);
     background-color: var(--bg-secondary);
     transition:
@@ -13,19 +13,26 @@
 }
 
 .footer__text {
-    font-size: 0.85rem;
+    font-size: 0.775rem;
     color: var(--text-muted);
+}
+
+.footer__copy {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .footer__links {
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    margin-top: 0.75rem;
 }
 
 .footer__link {
-    font-size: 0.85rem;
+    font-size: 0.775rem;
     color: var(--text-secondary);
     transition: color var(--transition-speed) ease;
 }
@@ -40,7 +47,11 @@
 
 @media (max-width: 640px) {
     .footer {
-        padding: 1.5rem 1rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .footer__copy {
+        left: 1rem;
     }
 
     .footer__links {

@@ -1,8 +1,10 @@
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { projects } from '../data/projects';
+import { getProjectImages } from '../data/projectImages';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import Tag from '../components/global/Tag';
 import Button from '../components/global/Button';
+import ProjectImageGallery from '../components/private/projects/ProjectImageGallery';
 
 const githubIcon = (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -28,6 +30,7 @@ function ProjectDetailPage() {
     if (!project) {
         return <Navigate to="/projects" replace />;
     }
+    const hasScreenshots = getProjectImages(project).length > 0;
 
     return (
         <div className="project-detail-page">
@@ -71,6 +74,13 @@ function ProjectDetailPage() {
 
                 {/* Content */}
                 <div className="project-detail-content">
+                    {hasScreenshots && (
+                        <div className="project-detail-content__section">
+                            <p className="project-detail-content__label">Screenshots</p>
+                            <ProjectImageGallery project={project} />
+                        </div>
+                    )}
+
                     <div className="project-detail-content__section">
                         <p className="project-detail-content__label">Problem</p>
                         <p className="project-detail-content__text">{project.problem}</p>

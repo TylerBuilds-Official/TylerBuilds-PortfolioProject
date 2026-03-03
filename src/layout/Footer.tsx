@@ -3,10 +3,13 @@ function Footer() {
 
     return (
         <footer className="footer">
-            <p className="footer__text">
-                &copy; {year} Tyler Emery. Built from scratch.
-            </p>
+
             <div className="footer__links">
+                <div className="footer__copy">
+                    <p className="footer__text">
+                        &copy; {year} Tyler Emery.
+                    </p>
+                </div>
                 <a
                     href="https://github.com/TylerBuilds-Official"
                     target="_blank"

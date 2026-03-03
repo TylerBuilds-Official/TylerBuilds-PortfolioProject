@@ -22,10 +22,9 @@
 
 .navbar__brand {
     font-family: var(--font-heading), sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     font-weight: 700;
-    /*margin-right: 4rem;*/
-
+    letter-spacing: -0.02em;
     color: var(--text-primary);
     z-index: 110;
 }
@@ -38,9 +37,10 @@
 }
 
 .navbar__link {
-    font-size: 0.9rem;
+    font-size: 0.87rem;
     font-weight: 500;
     color: var(--text-secondary);
+    letter-spacing: 0.01em;
     transition: color var(--transition-speed) ease;
     position: relative;
 }
@@ -171,7 +171,7 @@ body.menu-open {
     .navbar__link {
         display: block;
         padding: 0.85rem 0;
-        font-size: 1.1rem;
+        font-size: 0.95rem;
         border-bottom: 1px solid var(--border-subtle);
     }
 

@@ -28,13 +28,13 @@
 /* Sizes */
 
 .btn--md {
-    padding: 0.6rem 1.25rem;
-    font-size: 0.9rem;
+    padding: 0.55rem 1.15rem;
+    font-size: 0.8rem;
 }
 
 .btn--sm {
-    padding: 0.4rem 0.85rem;
-    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
 }
 
 /* Variants */

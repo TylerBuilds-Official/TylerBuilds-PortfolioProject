@@ -27,6 +27,7 @@
 
 /* Sections */
 @import './sections/hero.css';
+@import './sections/stats-counter.css';
 @import './sections/projects.css';
 @import './sections/project-detail.css';
 @import './sections/experience.css';

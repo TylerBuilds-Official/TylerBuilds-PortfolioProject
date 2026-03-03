@@ -23,24 +23,25 @@
 }
 
 .experience-group__company {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--text-primary);
+    letter-spacing: -0.02em;
     margin-bottom: 0.25rem;
 }
 
 .experience-group__role {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--accent);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
 }
 
 .experience-group__description {
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     color: var(--text-secondary);
-    line-height: 1.7;
-    max-width: 720px;
+    line-height: 1.6;
+    max-width: 680px;
 }
 
 /* Initiative grid */
@@ -59,17 +60,18 @@
 }
 
 .experience-initiative__title {
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
 }
 
 .experience-initiative__description {
-    font-size: 0.9rem;
+    font-size: 0.825rem;
     color: var(--text-secondary);
-    line-height: 1.65;
-    margin-bottom: 1rem;
+    line-height: 1.55;
+    margin-bottom: 0.85rem;
 }
 
 .experience-initiative__tech {
@@ -85,10 +87,10 @@
 }
 
 .experience-initiative__highlights li {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 0.35rem;
+    line-height: 1.5;
+    margin-bottom: 0.3rem;
     list-style: disc;
 }
 
@@ -116,19 +118,19 @@
 }
 
 .education-footnote__degree {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.2rem;
 }
 
 .education-footnote__school {
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     color: var(--text-secondary);
 }
 
 .education-footnote__status {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
     margin-top: 0.25rem;
 }

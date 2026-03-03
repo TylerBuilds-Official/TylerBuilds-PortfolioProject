@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import type { ReactNode, HTMLAttributes } from 'react';
 
 type CardVariant = 'flat' | 'elevated';
@@ -8,15 +9,16 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     children: ReactNode;
 }
 
-function Card({
+const Card = forwardRef<HTMLDivElement, CardProps>(function Card({
     variant = 'flat',
     interactive = false,
     children,
     className = '',
     ...rest
-}: CardProps) {
+}, ref) {
     return (
         <div
+            ref={ref}
             className={
                 `card card--${variant} ${interactive ? 'card--interactive' : ''} ${className}`.trim()
             }
@@ -25,6 +27,6 @@ function Card({
             {children}
         </div>
     );
-}
+});
 
 export default Card;

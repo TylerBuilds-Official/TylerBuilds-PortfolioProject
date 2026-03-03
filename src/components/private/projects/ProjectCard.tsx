@@ -1,4 +1,5 @@
 import type { Project } from '../../../types';
+import { useScrollReveal } from '../../../hooks/useScrollReveal';
 import Card from '../../global/Card';
 import Tag from '../../global/Tag';
 import Button from '../../global/Button';
@@ -6,6 +7,7 @@ import Button from '../../global/Button';
 interface ProjectCardProps {
     project: Project;
     onViewDetails: (project: Project) => void;
+    index?: number;
 }
 
 const githubIcon = (
@@ -14,13 +16,19 @@ const githubIcon = (
     </svg>
 );
 
-function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
+function ProjectCard({ project, onViewDetails, index = 0 }: ProjectCardProps) {
+    const cardRef = useScrollReveal<HTMLDivElement>({ threshold: 0.05 });
     const maxTech = 4;
     const visibleTech = project.techStack.slice(0, maxTech);
     const overflow = project.techStack.length - maxTech;
 
     return (
-        <Card variant="elevated" className="project-card">
+        <Card
+            ref={cardRef}
+            variant="elevated"
+            className="project-card reveal"
+            style={{ transitionDelay: `${index * 0.1}s` }}
+        >
             <div className="project-card__header">
                 <Tag variant="category">{project.category}</Tag>
             </div>

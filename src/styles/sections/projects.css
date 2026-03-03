@@ -17,8 +17,8 @@
 }
 
 .projects-filter__btn {
-    padding: 0.35rem 0.75rem;
-    font-size: 0.8rem;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.7rem;
     font-weight: 600;
     font-family: var(--font-body);
     color: var(--text-secondary);
@@ -27,7 +27,7 @@
     border-radius: var(--radius-sm);
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     transition:
         color var(--transition-speed) ease,
         background-color var(--transition-speed) ease,
@@ -68,17 +68,18 @@
 }
 
 .project-card__title {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.35rem;
 }
 
 .project-card__tagline {
-    font-size: 0.9rem;
+    font-size: 0.825rem;
     color: var(--text-secondary);
     line-height: 1.5;
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
     flex: 1;
 }
 
@@ -118,9 +119,9 @@
 }
 
 .project-detail__text {
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 .project-detail__highlights {
@@ -128,10 +129,10 @@
 }
 
 .project-detail__highlights li {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 0.4rem;
+    line-height: 1.55;
+    margin-bottom: 0.35rem;
     list-style: disc;
 }
 
@@ -154,17 +155,17 @@
 }
 
 .project-detail__metric-value {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--accent);
     font-family: var(--font-mono);
 }
 
 .project-detail__metric-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     margin-top: 0.25rem;
 }
 

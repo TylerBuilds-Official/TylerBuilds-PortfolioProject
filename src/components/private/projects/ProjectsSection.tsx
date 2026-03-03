@@ -2,7 +2,6 @@ import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Project, ProjectTier } from '../../../types';
 import { projects } from '../../../data/projects';
-import { useScrollReveal } from '../../../hooks/useScrollReveal';
 import SectionHeader from '../../global/SectionHeader';
 import Button from '../../global/Button';
 import ProjectCard from './ProjectCard';
@@ -48,12 +47,10 @@ function ProjectsSection({ mode = 'full' }: ProjectsSectionProps) {
     }
 
     const isHome = mode === 'home';
-    const sectionRef = useScrollReveal<HTMLElement>();
 
     return (
         <section
-            ref={sectionRef}
-            className={`projects-section ${isHome ? 'projects-section--home' : ''} ${isHome ? 'reveal' : ''}`}
+            className={`projects-section ${isHome ? 'projects-section--home' : ''}`}
         >
             <div className="container">
                 <SectionHeader
@@ -83,10 +80,11 @@ function ProjectsSection({ mode = 'full' }: ProjectsSectionProps) {
 
                 {/* Grid */}
                 <div className="projects-grid">
-                    {displayedProjects.map(project => (
+                    {displayedProjects.map((project, i) => (
                         <ProjectCard
                             key={project.slug}
                             project={project}
+                            index={i}
                             onViewDetails={handleViewDetails}
                         />
                     ))}

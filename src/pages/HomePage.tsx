@@ -1,5 +1,6 @@
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import HeroSection from '../components/private/hero/HeroSection';
+import StatsCounter from '../components/private/stats/StatsCounter';
 import ProjectsSection from '../components/private/projects/ProjectsSection';
 
 function HomePage() {
@@ -8,6 +9,7 @@ function HomePage() {
     return (
         <>
             <HeroSection />
+            <StatsCounter />
             <ProjectsSection mode="home" />
         </>
     );

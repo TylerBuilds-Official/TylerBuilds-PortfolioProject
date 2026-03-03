@@ -1,0 +1,69 @@
+/* ========================================
+   Stats Counter — Animated number showcase
+   ======================================== */
+
+.stats-counter {
+    padding: 3.5rem 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    background-color: var(--bg-secondary);
+    transition:
+        background-color var(--transition-speed) ease,
+        border-color var(--transition-speed) ease;
+}
+
+.stats-counter__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.stats-counter__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.stats-counter__value {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+.stats-counter__label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 768px) {
+    .stats-counter__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-counter {
+        padding: 2.5rem 0;
+    }
+
+    .stats-counter__value {
+        font-size: 1.5rem;
+    }
+
+    .stats-counter__label {
+        font-size: 0.65rem;
+    }
+}

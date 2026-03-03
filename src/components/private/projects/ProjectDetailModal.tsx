@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import type { Project } from '../../../types';
+import { getProjectImages } from '../../../data/projectImages';
 import Modal from '../../global/Modal';
 import Tag from '../../global/Tag';
 import Button from '../../global/Button';
+import ProjectImageGallery from './ProjectImageGallery';
 
 interface ProjectDetailModalProps {
     project: Project | null;
@@ -20,6 +22,7 @@ function ProjectDetailModal({ project, open, onClose }: ProjectDetailModalProps)
     const navigate = useNavigate();
 
     if (!project) return null;
+    const hasScreenshots = getProjectImages(project).length > 0;
 
     function handleViewCaseStudy() {
         onClose();
@@ -37,6 +40,14 @@ function ProjectDetailModal({ project, open, onClose }: ProjectDetailModalProps)
                     ))}
                 </div>
             </div>
+
+            {/* Screenshots */}
+            {hasScreenshots && (
+                <div className="project-detail__section">
+                    <p className="project-detail__label">Screenshots</p>
+                    <ProjectImageGallery project={project} />
+                </div>
+            )}
 
             {/* Metrics */}
             {project.metrics && project.metrics.length > 0 && (
