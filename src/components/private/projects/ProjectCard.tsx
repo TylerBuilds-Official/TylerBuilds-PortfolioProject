@@ -8,6 +8,7 @@ interface ProjectCardProps {
     project: Project;
     onViewDetails: (project: Project) => void;
     index?: number;
+    variant?: 'default' | 'featured';
 }
 
 const githubIcon = (
@@ -16,11 +17,54 @@ const githubIcon = (
     </svg>
 );
 
-function ProjectCard({ project, onViewDetails, index = 0 }: ProjectCardProps) {
+function ProjectCard({ project, onViewDetails, index = 0, variant = 'default' }: ProjectCardProps) {
     const cardRef = useScrollReveal<HTMLDivElement>({ threshold: 0.05 });
-    const maxTech = 4;
+    const maxTech = variant === 'featured' ? 3 : 4;
     const visibleTech = project.techStack.slice(0, maxTech);
     const overflow = project.techStack.length - maxTech;
+
+    if (variant === 'featured') {
+        return (
+            <div
+                ref={cardRef}
+                className="project-featured reveal"
+                style={{ transitionDelay: `${index * 0.12}s` }}
+            >
+                <div className="project-featured__rule" aria-hidden="true" />
+                <div className="project-featured__body">
+                    <div className="project-featured__meta">
+                        <h3 className="project-featured__title">{project.title}</h3>
+                        <p className="project-featured__tagline">{project.tagline}</p>
+                        <div className="project-featured__tech">
+                            {visibleTech.map(tech => (
+                                <Tag key={tech}>{tech}</Tag>
+                            ))}
+                            {overflow > 0 && <Tag>+{overflow}</Tag>}
+                        </div>
+                    </div>
+                    <div className="project-featured__actions">
+                        <button
+                            className="project-featured__link"
+                            onClick={() => onViewDetails(project)}
+                        >
+                            View Details
+                        </button>
+                        {project.githubUrl && (
+                            <button
+                                className="project-featured__link project-featured__link--muted"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
+                                }}
+                            >
+                                Source
+                            </button>
+                        )}
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <Card

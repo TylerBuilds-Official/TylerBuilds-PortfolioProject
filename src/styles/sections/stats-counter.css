@@ -4,9 +4,13 @@
 
 .stats-counter {
     padding: 3.5rem 0;
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     background-color: var(--bg-secondary);
+    box-shadow:
+        inset 0 4px 12px rgba(0, 0, 0, 0.25),
+        inset 0 -4px 12px rgba(0, 0, 0, 0.25);
+    will-change: transform;
     transition:
         background-color var(--transition-speed) ease,
         border-color var(--transition-speed) ease;

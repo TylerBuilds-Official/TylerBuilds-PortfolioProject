@@ -193,7 +193,107 @@
    ======================================== */
 
 .projects-section--home .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+/* ========================================
+   Featured Project Row (home variant)
+   ======================================== */
+
+.project-featured {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.project-featured:first-child {
+    border-top: 1px solid var(--border-subtle);
+}
+
+.project-featured__rule {
+    width: 2rem;
+    height: 2px;
+    background-color: var(--accent);
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.project-featured__body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.project-featured__meta {
+    flex: 1;
+}
+
+.project-featured__title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+}
+
+.project-featured__tagline {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 0.85rem;
+    max-width: 560px;
+}
+
+.project-featured__tech {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.project-featured__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    padding-top: 0.25rem;
+}
+
+.project-featured__link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    letter-spacing: 0.01em;
+    transition: color var(--transition-speed) ease;
+}
+
+.project-featured__link:hover {
+    color: var(--accent-hover);
+}
+
+.project-featured__link--muted {
+    color: var(--text-muted);
+}
+
+.project-featured__link--muted:hover {
+    color: var(--text-secondary);
+}
+
+@media (max-width: 640px) {
+    .project-featured__body {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .project-featured__actions {
+        flex-direction: row;
+        align-items: center;
+    }
 }
 
 .projects-section__cta {

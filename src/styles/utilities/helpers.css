@@ -75,6 +75,7 @@
 .hero-reveal--2 { animation-delay: 0.25s; }
 .hero-reveal--3 { animation-delay: 0.4s; }
 .hero-reveal--4 { animation-delay: 0.55s; }
+.hero-reveal--5 { animation-delay: 0.75s; }
 
 @keyframes heroFadeIn {
     to {

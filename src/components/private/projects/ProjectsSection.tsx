@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Project, ProjectTier } from '../../../types';
 import { projects } from '../../../data/projects';
@@ -47,9 +47,32 @@ function ProjectsSection({ mode = 'full' }: ProjectsSectionProps) {
     }
 
     const isHome = mode === 'home';
+    const sectionRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        if (!isHome) return;
+        const el = sectionRef.current;
+        if (!el) return;
+
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            const triggerAt = el.offsetTop - window.innerHeight + 64;
+
+            if (scrollY > triggerAt) {
+                const progress = Math.min(scrollY - triggerAt, 182);
+                el.style.transform = `translateY(${-progress * 0.27}px)`;
+            } else {
+                el.style.transform = '';
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isHome]);
 
     return (
         <section
+            ref={sectionRef}
             className={`projects-section ${isHome ? 'projects-section--home' : ''}`}
         >
             <div className="container">
@@ -85,6 +108,7 @@ function ProjectsSection({ mode = 'full' }: ProjectsSectionProps) {
                             key={project.slug}
                             project={project}
                             index={i}
+                            variant={isHome ? 'featured' : 'default'}
                             onViewDetails={handleViewDetails}
                         />
                     ))}

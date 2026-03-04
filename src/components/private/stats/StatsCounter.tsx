@@ -8,10 +8,10 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-    { label: 'Projects Built', value: 16 },
-    { label: 'Custom AI Tools', value: 30, suffix: '+' },
-    { label: 'Stored Procedures', value: 31, suffix: '+' },
-    { label: 'Source Files (Largest)', value: 261, suffix: '+' },
+    { label: 'Systems Deployed', value: 10, suffix: '+' },
+    { label: 'Industries Served', value: 5 },
+    { label: 'Hours of Manual Work Replaced', value: 100, suffix: 's' },
+    { label: 'Developer', value: 1 },
 ];
 
 const DURATION = 1800;
@@ -30,6 +30,8 @@ function StatsCounter() {
         const start = performance.now();
         const interval = 1000 / FPS;
         let lastFrame = start;
+        // Low values get a longer duration so the counter doesn't just snap
+        const durations = stats.map(s => s.value <= 5 ? DURATION * 2.5 : DURATION);
 
         function tick(now: number) {
             if (now - lastFrame < interval) {
@@ -39,17 +41,43 @@ function StatsCounter() {
             lastFrame = now;
 
             const elapsed = now - start;
-            const progress = Math.min(elapsed / DURATION, 1);
-            const eased = easeOutExpo(progress);
 
-            setCounts(stats.map(s => Math.round(eased * s.value)));
+            setCounts(stats.map((s, i) => {
+                const progress = Math.min(elapsed / durations[i], 1);
+                return Math.round(easeOutExpo(progress) * s.value);
+            }));
 
-            if (progress < 1) {
+            const allDone = durations.every((d) => elapsed >= d);
+            if (!allDone) {
                 requestAnimationFrame(tick);
             }
         }
 
         requestAnimationFrame(tick);
+    }, []);
+
+    useEffect(() => {
+        const el = sectionRef.current;
+        if (!el) return;
+
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            const windowH = window.innerHeight;
+            const sectionNaturalTop = el.offsetTop;
+            // Buffer by nav height so the effect never fires on initial load
+            const triggerAt = sectionNaturalTop - windowH + 64;
+
+            if (scrollY > triggerAt) {
+                const progress = scrollY - triggerAt;
+                el.style.transform = `translateY(${-progress * 0.35}px)`;
+            } else {
+                el.style.transform = '';
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     useEffect(() => {
