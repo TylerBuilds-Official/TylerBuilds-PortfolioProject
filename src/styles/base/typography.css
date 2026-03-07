@@ -7,7 +7,7 @@ body {
     font-size: 0.9375rem; /* 15px — tighter base */
     color: var(--text-primary);
     background-color: var(--bg-primary);
-    font-feature-settings: 'cv01', 'cv02', 'ss01'; /* Inter alternates */
+    font-feature-settings: 'kern'; /* standard kerning */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition:

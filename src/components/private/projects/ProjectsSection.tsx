@@ -18,6 +18,14 @@ const filterOptions: { value: FilterOption; label: string }[] = [
     { value: 'utility',        label: 'Utility' },
 ];
 
+const tierOrder: { tier: ProjectTier; label: string }[] = [
+    { tier: 'flagship',       label: 'Flagship Projects' },
+    { tier: 'enterprise',     label: 'Enterprise Tools' },
+    { tier: 'supporting',     label: 'Supporting Projects' },
+    { tier: 'infrastructure', label: 'Infrastructure & Tooling' },
+    { tier: 'utility',        label: 'Utilities' },
+];
+
 interface ProjectsSectionProps {
     mode?: 'home' | 'full';
 }
@@ -102,17 +110,41 @@ function ProjectsSection({ mode = 'full' }: ProjectsSectionProps) {
                 )}
 
                 {/* Grid */}
-                <div className="projects-grid">
-                    {displayedProjects.map((project, i) => (
-                        <ProjectCard
-                            key={project.slug}
-                            project={project}
-                            index={i}
-                            variant={isHome ? 'featured' : 'default'}
-                            onViewDetails={handleViewDetails}
-                        />
-                    ))}
-                </div>
+                {!isHome && activeFilter === 'all' ? (
+                    tierOrder.map(({ tier, label }) => {
+                        const tierProjects = displayedProjects.filter(p => p.category === tier);
+                        if (tierProjects.length === 0) return null;
+
+                        return (
+                            <div key={tier} className={`projects-tier-group projects-tier-group--${tier}`}>
+                                <h3 className="projects-tier-group__label">{label}</h3>
+                                <div className="projects-grid">
+                                    {tierProjects.map((project, i) => (
+                                        <ProjectCard
+                                            key={project.slug}
+                                            project={project}
+                                            index={i}
+                                            variant="default"
+                                            onViewDetails={handleViewDetails}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        );
+                    })
+                ) : (
+                    <div className="projects-grid">
+                        {displayedProjects.map((project, i) => (
+                            <ProjectCard
+                                key={project.slug}
+                                project={project}
+                                index={i}
+                                variant={isHome ? 'featured' : 'default'}
+                                onViewDetails={handleViewDetails}
+                            />
+                        ))}
+                    </div>
+                )}
 
                 {/* Homepage CTA */}
                 {isHome && (

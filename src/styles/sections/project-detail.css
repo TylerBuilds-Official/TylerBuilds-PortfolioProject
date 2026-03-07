@@ -179,6 +179,26 @@
     max-width: 680px;
 }
 
+/* Section cards */
+
+.project-detail-content__card {
+    padding: 1.25rem 1.35rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    max-width: 680px;
+}
+
+.project-detail-content__card .project-detail-content__label {
+    margin-bottom: 0.4rem;
+}
+
+.project-detail-content__card--impact .project-detail-content__text {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
 .project-detail-content__highlights {
     padding-left: 1.5rem;
     max-width: 680px;

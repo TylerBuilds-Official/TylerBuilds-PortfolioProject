@@ -5,13 +5,14 @@
 .tag {
     display: inline-flex;
     align-items: center;
-    padding: 0.2rem 0.55rem;
+    gap: 0.3rem;
+    padding: 0.21rem 0.55rem;
     font-size: 0.675rem;
     font-weight: 500;
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), sans-serif;
     line-height: 1;
     letter-spacing: 0.01em;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-ex-sm);
     white-space: nowrap;
     transition:
         color var(--transition-speed) ease,
@@ -19,10 +20,20 @@
         border-color var(--transition-speed) ease;
 }
 
+.tag__icon {
+    font-size: 1.1em;
+    line-height: 1;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    margin-top: 0.05rem;
+}
+
 .tag--default {
     color: var(--text-secondary);
     background-color: var(--accent-subtle);
-    border: 1px solid var(--border-subtle);
+    border: 1px solid var(--border);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 .tag--accent {

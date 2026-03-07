@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import type { Project } from '../../../types';
 import { getProjectImages } from '../../../data/projectImages';
+import { getTechIconClass } from '../../../utils/techIcons';
 import Modal from '../../global/Modal';
 import Tag from '../../global/Tag';
 import Button from '../../global/Button';
+import { renderInlineMarkdown } from '../../../utils/inlineMarkdown';
 import ProjectImageGallery from './ProjectImageGallery';
 
 interface ProjectDetailModalProps {
@@ -36,7 +38,7 @@ function ProjectDetailModal({ project, open, onClose }: ProjectDetailModalProps)
                 <div className="project-detail__tech">
                     <Tag variant="category">{project.category}</Tag>
                     {project.techStack.map(tech => (
-                        <Tag key={tech}>{tech}</Tag>
+                        <Tag key={tech} iconClass={getTechIconClass(tech)}>{tech}</Tag>
                     ))}
                 </div>
             </div>
@@ -68,20 +70,26 @@ function ProjectDetailModal({ project, open, onClose }: ProjectDetailModalProps)
 
             {/* Problem */}
             <div className="project-detail__section">
-                <p className="project-detail__label">Problem</p>
-                <p className="project-detail__text">{project.problem}</p>
+                <div className="project-detail__card">
+                    <p className="project-detail__label">Problem</p>
+                    <p className="project-detail__text">{renderInlineMarkdown(project.problem)}</p>
+                </div>
             </div>
 
             {/* Solution */}
             <div className="project-detail__section">
-                <p className="project-detail__label">Solution</p>
-                <p className="project-detail__text">{project.solution}</p>
+                <div className="project-detail__card">
+                    <p className="project-detail__label">Solution</p>
+                    <p className="project-detail__text">{renderInlineMarkdown(project.solution)}</p>
+                </div>
             </div>
 
             {/* Impact */}
             <div className="project-detail__section">
-                <p className="project-detail__label">Impact</p>
-                <p className="project-detail__text">{project.impact}</p>
+                <div className="project-detail__card project-detail__card--impact">
+                    <p className="project-detail__label">Impact</p>
+                    <p className="project-detail__text">{renderInlineMarkdown(project.impact)}</p>
+                </div>
             </div>
 
             {/* Highlights */}
@@ -90,7 +98,7 @@ function ProjectDetailModal({ project, open, onClose }: ProjectDetailModalProps)
                     <p className="project-detail__label">Highlights</p>
                     <ul className="project-detail__highlights">
                         {project.highlights.map((h, i) => (
-                            <li key={i}>{h}</li>
+                            <li key={i}>{renderInlineMarkdown(h)}</li>
                         ))}
                     </ul>
                 </div>

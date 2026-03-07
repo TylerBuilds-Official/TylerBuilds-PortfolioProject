@@ -2,8 +2,10 @@ import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { projects } from '../data/projects';
 import { getProjectImages } from '../data/projectImages';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { getTechIconClass } from '../utils/techIcons';
 import Tag from '../components/global/Tag';
 import Button from '../components/global/Button';
+import { renderInlineMarkdown } from '../utils/inlineMarkdown';
 import ProjectImageGallery from '../components/private/projects/ProjectImageGallery';
 
 const githubIcon = (
@@ -49,7 +51,7 @@ function ProjectDetailPage() {
                     <div className="project-detail-hero__tags">
                         <Tag variant="category">{project.category}</Tag>
                         {project.techStack.map(tech => (
-                            <Tag key={tech}>{tech}</Tag>
+                            <Tag key={tech} iconClass={getTechIconClass(tech)}>{tech}</Tag>
                         ))}
                     </div>
 
@@ -82,18 +84,24 @@ function ProjectDetailPage() {
                     )}
 
                     <div className="project-detail-content__section">
-                        <p className="project-detail-content__label">Problem</p>
-                        <p className="project-detail-content__text">{project.problem}</p>
+                        <div className="project-detail-content__card">
+                            <p className="project-detail-content__label">Problem</p>
+                            <p className="project-detail-content__text">{renderInlineMarkdown(project.problem)}</p>
+                        </div>
                     </div>
 
                     <div className="project-detail-content__section">
-                        <p className="project-detail-content__label">Solution</p>
-                        <p className="project-detail-content__text">{project.solution}</p>
+                        <div className="project-detail-content__card">
+                            <p className="project-detail-content__label">Solution</p>
+                            <p className="project-detail-content__text">{renderInlineMarkdown(project.solution)}</p>
+                        </div>
                     </div>
 
                     <div className="project-detail-content__section">
-                        <p className="project-detail-content__label">Impact</p>
-                        <p className="project-detail-content__text">{project.impact}</p>
+                        <div className="project-detail-content__card project-detail-content__card--impact">
+                            <p className="project-detail-content__label">Impact</p>
+                            <p className="project-detail-content__text">{renderInlineMarkdown(project.impact)}</p>
+                        </div>
                     </div>
 
                     {project.highlights.length > 0 && (
@@ -101,7 +109,7 @@ function ProjectDetailPage() {
                             <p className="project-detail-content__label">Highlights</p>
                             <ul className="project-detail-content__highlights">
                                 {project.highlights.map((h, i) => (
-                                    <li key={i}>{h}</li>
+                                    <li key={i}>{renderInlineMarkdown(h)}</li>
                                 ))}
                             </ul>
                         </div>

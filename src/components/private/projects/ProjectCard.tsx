@@ -1,5 +1,6 @@
 import type { Project } from '../../../types';
 import { useScrollReveal } from '../../../hooks/useScrollReveal';
+import { getTechIconClass } from '../../../utils/techIcons';
 import Card from '../../global/Card';
 import Tag from '../../global/Tag';
 import Button from '../../global/Button';
@@ -37,7 +38,7 @@ function ProjectCard({ project, onViewDetails, index = 0, variant = 'default' }:
                         <p className="project-featured__tagline">{project.tagline}</p>
                         <div className="project-featured__tech">
                             {visibleTech.map(tech => (
-                                <Tag key={tech}>{tech}</Tag>
+                                <Tag key={tech} iconClass={getTechIconClass(tech)}>{tech}</Tag>
                             ))}
                             {overflow > 0 && <Tag>+{overflow}</Tag>}
                         </div>
@@ -66,11 +67,14 @@ function ProjectCard({ project, onViewDetails, index = 0, variant = 'default' }:
         );
     }
 
+    const isFlagship = project.category === 'flagship';
+
     return (
         <Card
             ref={cardRef}
             variant="elevated"
-            className="project-card reveal"
+            className={`project-card ${isFlagship ? 'project-card--flagship' : ''} reveal`}
+            data-tier={project.category}
             style={{ transitionDelay: `${index * 0.1}s` }}
         >
             <div className="project-card__header">
@@ -82,7 +86,7 @@ function ProjectCard({ project, onViewDetails, index = 0, variant = 'default' }:
 
             <div className="project-card__tech">
                 {visibleTech.map(tech => (
-                    <Tag key={tech}>{tech}</Tag>
+                    <Tag key={tech} iconClass={getTechIconClass(tech)}>{tech}</Tag>
                 ))}
                 {overflow > 0 && <Tag>+{overflow}</Tag>}
             </div>

@@ -99,6 +99,81 @@
     border-top: 1px solid var(--border-subtle);
 }
 
+/* ========================================
+   Tier Groups — Grouped "All" view
+   ======================================== */
+
+.projects-tier-group {
+    margin-bottom: 3rem;
+}
+
+.projects-tier-group:last-child {
+    margin-bottom: 0;
+}
+
+.projects-tier-group__label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+/* ========================================
+   Tier Accent Colors — subtle tinted cards
+   ======================================== */
+
+.project-card[data-tier="flagship"]       { --tier-color: 96, 165, 250; }
+.project-card[data-tier="enterprise"]     { --tier-color: 251, 191, 36; }
+.project-card[data-tier="supporting"]     { --tier-color: 52, 211, 153; }
+.project-card[data-tier="infrastructure"] { --tier-color: 148, 163, 184; }
+.project-card[data-tier="utility"]        { --tier-color: 167, 139, 250; }
+
+.project-card[data-tier] {
+    background-color: rgba(var(--tier-color), 0.04);
+    border-color: rgba(var(--tier-color), 0.15);
+    box-shadow: 0 2px 8px rgba(var(--tier-color), 0.06);
+}
+
+.project-card[data-tier]:hover {
+    background-color: rgba(var(--tier-color), 0.07);
+    border-color: rgba(var(--tier-color), 0.25);
+    box-shadow: 0 4px 16px rgba(var(--tier-color), 0.1);
+}
+
+/* Flagship cards — span full grid width in grouped view */
+
+.projects-tier-group--flagship .project-card--flagship {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.projects-tier-group--flagship .project-card--flagship .project-card__header {
+    margin-bottom: 0;
+}
+
+.projects-tier-group--flagship .project-card--flagship .project-card__tagline {
+    margin-bottom: 0;
+    flex: unset;
+}
+
+.projects-tier-group--flagship .project-card--flagship .project-card__tech {
+    margin-bottom: 0;
+}
+
+.projects-tier-group--flagship .project-card--flagship .project-card__actions {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
 /* Detail Modal */
 
 .project-detail__section {
@@ -113,7 +188,7 @@
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.07em;
     color: var(--accent);
     margin-bottom: 0.5rem;
 }
@@ -123,6 +198,28 @@
     color: var(--text-secondary);
     line-height: 1.6;
 }
+
+/* Section cards — subtle containers for content blocks */
+
+.project-detail__card {
+    padding: 1.15rem 1.25rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.project-detail__card .project-detail__label {
+    margin-bottom: 0.4rem;
+}
+
+.project-detail__card--impact .project-detail__text {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Highlights */
 
 .project-detail__highlights {
     padding-left: 1.25rem;
@@ -141,31 +238,39 @@
 }
 
 .project-detail__metrics {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    display: flex;
     gap: 0.75rem;
 }
 
 .project-detail__metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
     padding: 0.75rem;
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-sm);
     text-align: center;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .project-detail__metric-value {
     font-size: 1rem;
     font-weight: 700;
     color: var(--accent);
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), sans-serif;
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .project-detail__metric-label {
     font-size: 0.65rem;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.07em;
     margin-top: 0.25rem;
 }
 
@@ -315,7 +420,22 @@
         grid-template-columns: 1fr;
     }
 
+    .projects-tier-group--flagship .project-card--flagship {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .projects-tier-group--flagship .project-card--flagship .project-card__tagline {
+        flex: 1;
+    }
+
+    .projects-tier-group--flagship .project-card--flagship .project-card__actions {
+        margin-left: 0;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-subtle);
+    }
+
     .project-detail__metrics {
-        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
     }
 }
