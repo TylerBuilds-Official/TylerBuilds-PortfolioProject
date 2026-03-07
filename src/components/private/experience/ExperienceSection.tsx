@@ -19,7 +19,7 @@ function ExperienceSection() {
             <div className="container">
                 <SectionHeader
                     title="Experience"
-                    subtitle="What I've built — grouped by initiative, not by calendar."
+                    subtitle="Professional experience across enterprise software and my own business."
                 />
 
                 {experience.map(group => (
