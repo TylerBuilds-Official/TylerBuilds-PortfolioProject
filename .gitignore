@@ -25,5 +25,3 @@ builds
 *.sln
 *.sw?
 
-
-netlify.toml
