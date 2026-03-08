@@ -1,16 +1,10 @@
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import ContactSection from '../components/private/contact/ContactSection';
 
 function ContactPage() {
     useDocumentTitle('Contact');
 
-    return (
-        <div className="container">
-            <section className="section">
-                <h1>Contact</h1>
-                <p>Coming soon.</p>
-            </section>
-        </div>
-    );
+    return <ContactSection />;
 }
 
 export default ContactPage;

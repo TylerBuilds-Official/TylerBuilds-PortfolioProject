@@ -16,7 +16,7 @@ export const ThemeContext = createContext<ThemeContextValue>({
 
 function getStoredTheme(): ThemeName {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored && ['dark', 'light', 'midnight', 'terminal', 'paper'].includes(stored)) {
+    if (stored && ['dark', 'light', 'midnight', 'terminal', 'leaf'].includes(stored)) {
         return stored as ThemeName;
     }
     return DEFAULT_THEME;

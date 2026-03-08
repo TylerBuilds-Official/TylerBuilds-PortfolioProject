@@ -88,8 +88,8 @@ function ProjectsSection({ mode = 'full' }: ProjectsSectionProps) {
                     title={isHome ? 'Featured Projects' : 'Projects'}
                     subtitle={
                         isHome
-                            ? 'A selection of flagship projects — from enterprise AI platforms to full-stack business applications.'
-                            : 'Everything I\'ve built — from enterprise platforms to standalone utilities.'
+                            ? 'A selection of flagship projects, from enterprise AI platforms to full-stack business applications.'
+                            : 'Everything I\'ve built, from enterprise platforms to standalone utilities.'
                     }
                     center={isHome}
                 />

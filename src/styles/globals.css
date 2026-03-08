@@ -11,7 +11,7 @@
 @import './themes/theme-light.css';
 @import './themes/theme-midnight.css';
 @import './themes/theme-terminal.css';
-@import './themes/theme-paper.css';
+@import './themes/theme-leaf.css';
 
 /* Layout */
 @import './layout/navbar.css';
@@ -24,6 +24,7 @@
 @import './global/section-header.css';
 @import './global/card.css';
 @import './global/modal.css';
+@import './global/leaf-plant.css';
 
 /* Sections */
 @import './sections/hero.css';
@@ -31,6 +32,7 @@
 @import './sections/projects.css';
 @import './sections/project-detail.css';
 @import './sections/experience.css';
+@import './sections/contact.css';
 
 /* Utilities */
 @import './utilities/helpers.css';

@@ -45,4 +45,4 @@ export interface ExperienceGroup {
     initiatives: ExperienceInitiative[];
 }
 
-export type ThemeName = 'dark' | 'light' | 'midnight' | 'terminal' | 'paper';
+export type ThemeName = 'dark' | 'light' | 'midnight' | 'terminal' | 'leaf';

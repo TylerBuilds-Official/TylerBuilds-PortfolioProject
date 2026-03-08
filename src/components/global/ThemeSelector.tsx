@@ -7,7 +7,7 @@ const themes: { name: ThemeName; label: string }[] = [
     { name: 'light',    label: 'Light' },
     { name: 'midnight', label: 'Midnight' },
     { name: 'terminal', label: 'Terminal' },
-    { name: 'paper',    label: 'Paper' },
+    { name: 'leaf',     label: 'Leaf' },
 ];
 
 function ThemeSelector() {

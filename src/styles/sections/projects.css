@@ -146,14 +146,19 @@
 
 /* Lone last card in a row stretches to fill remaining space */
 
-.projects-grid > .project-card:last-child:nth-child(3n + 1) {
+.projects-grid > .project-card:not(.project-card--flagship):last-child:nth-child(3n + 1) {
     grid-column: 1 / -1;
 }
 
-/* Flagship cards — span full grid width in grouped view */
+/* Flagship cards — always span full grid width */
+
+.project-card--flagship {
+    grid-column: 1 / -1;
+}
+
+/* Flagship horizontal layout in grouped view */
 
 .projects-tier-group--flagship .project-card--flagship {
-    grid-column: 1 / -1;
     flex-direction: row;
     align-items: center;
     gap: 2rem;
@@ -423,12 +428,12 @@
     }
 
     /* Reset 3-col lone card rule */
-    .projects-grid > .project-card:last-child:nth-child(3n + 1) {
+    .projects-grid > .project-card:not(.project-card--flagship):last-child:nth-child(3n + 1) {
         grid-column: auto;
     }
 
     /* 2-col lone card stretches */
-    .projects-grid > .project-card:last-child:nth-child(2n + 1) {
+    .projects-grid > .project-card:not(.project-card--flagship):last-child:nth-child(2n + 1) {
         grid-column: 1 / -1;
     }
 

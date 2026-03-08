@@ -91,7 +91,7 @@
 .theme-selector__swatch--light      { background-color: #f8f9fb; }
 .theme-selector__swatch--midnight   { background-color: #0d1120; }
 .theme-selector__swatch--terminal   { background-color: #0a0a0a; border-color: #33ff33; }
-.theme-selector__swatch--paper      { background-color: #faf8f5; }
+.theme-selector__swatch--leaf       { background-color: #f4f1eb; border-color: #5a9a6b; }
 
 /* ========================================
    Mobile — inside hamburger menu

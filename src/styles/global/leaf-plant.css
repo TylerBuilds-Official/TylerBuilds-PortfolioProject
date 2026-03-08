@@ -1,0 +1,48 @@
+/* ========================================
+   Leaf Vine — scroll-drawn decorative vine
+   Only visible on the leaf theme.
+   ======================================== */
+
+/* Region wrapper — contains stats + projects */
+
+.leaf-vine-region {
+    position: relative;
+}
+
+/* Vine container — anchored to stats bottom, stretches to region bottom */
+
+.leaf-vine {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 20%;
+    width: 70px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    color: var(--accent);
+    opacity: 0.25;
+    overflow: visible;
+    clip-path: inset(0 -100px);
+}
+
+.leaf-vine__svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.leaf-vine__path {
+    will-change: stroke-dashoffset;
+    transition: stroke-dashoffset 0.05s linear;
+}
+
+/* ========================================
+   Responsive — hide on small screens
+   ======================================== */
+
+@media (max-width: 768px) {
+    .leaf-vine {
+        display: none;
+    }
+}

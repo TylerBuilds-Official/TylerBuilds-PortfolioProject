@@ -1,0 +1,39 @@
+/* ========================================
+   Theme: Leaf — earthy light, sage & forest green
+   ======================================== */
+
+[data-theme="leaf"] {
+    --bg-primary:       #f4f1eb;
+    --bg-secondary:     #eae5db;
+    --bg-tertiary:      #dfd9cc;
+    --bg-card:          #faf8f4;
+    --bg-modal:         #faf8f4;
+
+    --text-primary:     #2d3128;
+    --text-secondary:   #555c4e;
+    --text-muted:       #8a907f;
+
+    --accent:           #5a9a6b;
+    --accent-hover:     #4a8259;
+    --accent-subtle:    rgba(90, 154, 107, 0.1);
+
+    --border:           #d5cfc3;
+    --border-subtle:    #e3ded3;
+
+    --shadow-sm: 0 1px 3px rgba(45, 49, 40, 0.06);
+    --shadow-md: 0 4px 12px rgba(45, 49, 40, 0.08);
+    --shadow-lg: 0 12px 36px rgba(45, 49, 40, 0.1);
+
+    --radius-ex-sm: 3px;
+    --radius-sm:    5px;
+    --radius-md:    8px;
+    --radius-lg:    12px;
+
+    --font-body:    'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-heading: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono:    'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+    --transition-speed: 0.25s;
+
+    --nav-height: 64px;
+}
