@@ -48,8 +48,14 @@
 
 .experience-initiatives {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+}
+
+/* Lone last card stretches to fill remaining space */
+
+.experience-initiatives > .experience-initiative:last-child:nth-child(3n + 1) {
+    grid-column: 1 / -1;
 }
 
 /* Initiative card */
@@ -139,8 +145,26 @@
    Responsive
    ======================================== */
 
+@media (max-width: 1024px) {
+    .experience-initiatives {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .experience-initiatives > .experience-initiative:last-child:nth-child(3n + 1) {
+        grid-column: auto;
+    }
+
+    .experience-initiatives > .experience-initiative:last-child:nth-child(2n + 1) {
+        grid-column: 1 / -1;
+    }
+}
+
 @media (max-width: 640px) {
     .experience-initiatives {
         grid-template-columns: 1fr;
+    }
+
+    .experience-initiatives > .experience-initiative:last-child:nth-child(2n + 1) {
+        grid-column: auto;
     }
 }
