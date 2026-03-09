@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const BASE_TITLE = 'Tyler Emery — Portfolio';
+const BASE_TITLE = 'Tyler Emery | Portfolio';
 
 export function useDocumentTitle(title?: string) {
     useEffect(() => {
