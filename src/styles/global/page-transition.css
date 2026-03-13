@@ -1,26 +1,18 @@
 /* ========================================
-   Page Transition — Route change crossfade
+   Page Transition — Route change fade-in
    ======================================== */
 
 .page-transition {
-    opacity: 1;
-    transform: translateY(0);
-    transition:
-        opacity 0.16s ease,
-        transform 0.16s ease;
+    animation: pageEnter 0.25s ease both;
 }
 
-.page-transition--fading {
-    opacity: 0;
-    transform: translateY(6px);
-}
-
-.page-transition--entering {
-    opacity: 0;
-    transform: translateY(-6px);
-}
-
-.page-transition--visible {
-    opacity: 1;
-    transform: translateY(0);
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
