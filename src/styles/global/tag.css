@@ -13,6 +13,7 @@
     line-height: 1;
     letter-spacing: 0.01em;
     border-radius: var(--radius-ex-sm);
+    cursor: default;
     white-space: nowrap;
     transition:
         color var(--transition-speed) ease,
@@ -36,10 +37,19 @@
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
+.tag--default:hover {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
 .tag--accent {
     color: var(--accent);
     background-color: var(--accent-subtle);
     border: 1px solid var(--accent);
+}
+
+.tag--accent:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 .tag--category {
@@ -51,4 +61,8 @@
     text-transform: uppercase;
     font-size: 0.6rem;
     letter-spacing: 0.06em;
+}
+
+.tag--category:hover {
+    border-color: rgba(255, 255, 255, 0.08);
 }
