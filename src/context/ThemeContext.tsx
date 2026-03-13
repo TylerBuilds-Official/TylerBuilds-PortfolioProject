@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, type ReactNode } from 'react';
+import { createContext, useState, useEffect, useRef, type ReactNode } from 'react';
 import type { ThemeName } from '../types';
 
 interface ThemeContextValue {
@@ -30,8 +30,22 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         localStorage.setItem(STORAGE_KEY, newTheme);
     };
 
+    const hasInitialized = useRef(false);
+
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme);
+
+        // Skip the flash on initial load
+        if (!hasInitialized.current) {
+            hasInitialized.current = true;
+            return;
+        }
+
+        const root = document.querySelector('.app-root');
+        if (!root) return;
+        root.classList.add('theme-switching');
+        const timer = setTimeout(() => root.classList.remove('theme-switching'), 300);
+        return () => clearTimeout(timer);
     }, [theme]);
 
     return (

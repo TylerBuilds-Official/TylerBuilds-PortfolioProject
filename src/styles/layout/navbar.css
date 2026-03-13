@@ -45,20 +45,30 @@
     position: relative;
 }
 
+.navbar__link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    border-radius: 1px;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
 .navbar__link:hover,
 .navbar__link--active {
     color: var(--accent);
 }
 
+.navbar__link:hover::after {
+    width: 60%;
+}
+
 .navbar__link--active::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: var(--accent);
-    border-radius: 1px;
+    width: 100%;
 }
 
 .navbar__actions {

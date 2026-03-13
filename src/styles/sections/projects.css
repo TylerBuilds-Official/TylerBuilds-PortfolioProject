@@ -58,6 +58,26 @@
 .project-card {
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    opacity: 0.35;
+    border-radius: 0 0 1px 1px;
+    transition: width 0.35s ease;
+}
+
+.project-card:hover::before {
+    width: 100%;
 }
 
 .project-card__header {
@@ -142,6 +162,10 @@
     background-color: rgba(var(--tier-color), 0.07);
     border-color: rgba(var(--tier-color), 0.25);
     box-shadow: 0 4px 16px rgba(var(--tier-color), 0.1);
+}
+
+.project-card[data-tier]::before {
+    background-color: rgba(var(--tier-color), 0.35);
 }
 
 /* Lone last card in a row stretches to fill remaining space */

@@ -6,6 +6,7 @@ import SectionHeader from '../../global/SectionHeader';
 import Button from '../../global/Button';
 import ProjectCard from './ProjectCard';
 import ProjectDetailModal from './ProjectDetailModal';
+import { useScrollReveal } from '../../../hooks/useScrollReveal';
 
 type FilterOption = 'all' | ProjectTier;
 
@@ -25,6 +26,19 @@ const tierOrder: { tier: ProjectTier; label: string }[] = [
     { tier: 'infrastructure', label: 'Infrastructure & Tooling' },
     { tier: 'utility',        label: 'Utilities' },
 ];
+
+function TierGroup({ tier, label, children }: { tier: ProjectTier; label: string; children: React.ReactNode }) {
+    const ref = useScrollReveal<HTMLDivElement>({ threshold: 0.05 });
+
+    return (
+        <div ref={ref} className={`projects-tier-group projects-tier-group--${tier} reveal`}>
+            <h3 className="projects-tier-group__label">{label}</h3>
+            <div className="projects-grid">
+                {children}
+            </div>
+        </div>
+    );
+}
 
 interface ProjectsSectionProps {
     mode?: 'home' | 'full';
@@ -116,20 +130,17 @@ function ProjectsSection({ mode = 'full' }: ProjectsSectionProps) {
                         if (tierProjects.length === 0) return null;
 
                         return (
-                            <div key={tier} className={`projects-tier-group projects-tier-group--${tier}`}>
-                                <h3 className="projects-tier-group__label">{label}</h3>
-                                <div className="projects-grid">
-                                    {tierProjects.map((project, i) => (
-                                        <ProjectCard
-                                            key={project.slug}
-                                            project={project}
-                                            index={i}
-                                            variant="default"
-                                            onViewDetails={handleViewDetails}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
+                            <TierGroup key={tier} tier={tier} label={label}>
+                                {tierProjects.map((project, i) => (
+                                    <ProjectCard
+                                        key={project.slug}
+                                        project={project}
+                                        index={i}
+                                        variant="default"
+                                        onViewDetails={handleViewDetails}
+                                    />
+                                ))}
+                            </TierGroup>
                         );
                     })
                 ) : (

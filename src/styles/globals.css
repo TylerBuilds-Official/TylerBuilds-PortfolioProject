@@ -25,6 +25,7 @@
 @import './global/card.css';
 @import './global/modal.css';
 @import './global/leaf-plant.css';
+@import './global/page-transition.css';
 
 /* Sections */
 @import './sections/hero.css';
@@ -33,6 +34,7 @@
 @import './sections/project-detail.css';
 @import './sections/experience.css';
 @import './sections/contact.css';
+@import './sections/not-found.css';
 
 /* Utilities */
 @import './utilities/helpers.css';
@@ -59,4 +61,14 @@
 .app-root > main {
     flex: 1;
     margin-top: var(--nav-height);
+}
+
+.app-root.theme-switching {
+    animation: themePulse 0.3s ease;
+}
+
+@keyframes themePulse {
+    0%   { opacity: 1;    filter: brightness(1); }
+    40%  { opacity: 0.88; filter: brightness(0.92); }
+    100% { opacity: 1;    filter: brightness(1); }
 }

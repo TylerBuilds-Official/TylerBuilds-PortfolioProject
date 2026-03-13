@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Layout from './layout/Layout';
 import ScrollToTop from './components/global/ScrollToTop';
@@ -7,6 +7,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import ExperiencePage from './pages/ExperiencePage';
 import ContactPage from './pages/ContactPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
     return (
@@ -20,7 +21,7 @@ function App() {
                         <Route path="/projects/:slug" element={<ProjectDetailPage />} />
                         <Route path="/experience" element={<ExperiencePage />} />
                         <Route path="/contact" element={<ContactPage />} />
-                        <Route path="*" element={<Navigate to="/" replace />} />
+                        <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                 </Layout>
             </BrowserRouter>

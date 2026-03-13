@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import Button from '../../global/Button';
 
 function HeroSection() {
@@ -65,8 +65,38 @@ function HeroSection() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const heroRef = useRef<HTMLElement>(null);
+    const cursorPos = useRef({ x: 0, y: 0 });
+
+    const updateGlow = useCallback(() => {
+        const el = heroRef.current;
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const x = ((cursorPos.current.x - rect.left) / rect.width) * 100;
+        const y = ((cursorPos.current.y - rect.top) / rect.height) * 100;
+        el.style.setProperty('--glow-x', `${x}%`);
+        el.style.setProperty('--glow-y', `${y}%`);
+    }, []);
+
+    useEffect(() => {
+        const el = heroRef.current;
+        if (!el) return;
+
+        const handleMouseMove = (e: MouseEvent) => {
+            cursorPos.current = { x: e.clientX, y: e.clientY };
+            updateGlow();
+        };
+
+        el.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('scroll', updateGlow, { passive: true });
+        return () => {
+            el.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('scroll', updateGlow);
+        };
+    }, [updateGlow]);
+
     return (
-        <section className="hero">
+        <section ref={heroRef} className="hero">
             <div ref={decoRef} className="hero__deco" aria-hidden="true">
                 <span ref={charLeftRef} className="hero__deco-char">&lt;</span>
                 <span ref={charMidRef} className="hero__deco-char">~</span>

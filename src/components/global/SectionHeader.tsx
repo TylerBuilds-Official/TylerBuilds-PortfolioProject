@@ -1,3 +1,5 @@
+import { useScrollReveal } from '../../hooks/useScrollReveal';
+
 interface SectionHeaderProps {
     title: string;
     subtitle?: string;
@@ -6,8 +8,13 @@ interface SectionHeaderProps {
 }
 
 function SectionHeader({ title, subtitle, center = false, className = '' }: SectionHeaderProps) {
+    const ref = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
+
     return (
-        <div className={`section-header ${center ? 'section-header--center' : ''} ${className}`.trim()}>
+        <div
+            ref={ref}
+            className={`section-header reveal ${center ? 'section-header--center' : ''} ${className}`.trim()}
+        >
             <h2 className="section-header__title">{title}</h2>
             <span className="section-header__accent-bar" />
             {subtitle && (

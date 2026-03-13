@@ -25,11 +25,19 @@
     background-color: var(--accent);
     border-radius: 2px;
     margin-top: 0.75rem;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.5s ease 0.15s;
+}
+
+.section-header.revealed .section-header__accent-bar {
+    transform: scaleX(1);
 }
 
 .section-header--center .section-header__accent-bar {
     margin-left: auto;
     margin-right: auto;
+    transform-origin: center center;
 }
 
 .section-header__subtitle {
