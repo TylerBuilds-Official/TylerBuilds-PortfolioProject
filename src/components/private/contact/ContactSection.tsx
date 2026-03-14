@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
+import { useScrollReveal } from '../../../hooks/useScrollReveal';
 import SectionHeader from '../../global/SectionHeader';
 import Button from '../../global/Button';
 
 function ContactSection() {
     const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
     const [statusMessage, setStatusMessage] = useState('');
+    const formRef = useScrollReveal<HTMLFormElement>({ threshold: 0.1 });
+    const linksRef = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
 
     async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -49,8 +52,13 @@ function ContactSection() {
                     subtitle="Want to get in touch? Send me a message."
                 />
 
-                <form className="contact-form" onSubmit={handleSubmit} noValidate>
-                    <label className="contact-form__field">
+                <form
+                    ref={formRef}
+                    className="contact-form reveal"
+                    onSubmit={handleSubmit}
+                    noValidate
+                >
+                    <label className="contact-form__field contact-form__stagger-1">
                         <span className="contact-form__label">Name</span>
                         <input
                             className="contact-form__input"
@@ -61,7 +69,7 @@ function ContactSection() {
                         />
                     </label>
 
-                    <label className="contact-form__field">
+                    <label className="contact-form__field contact-form__stagger-2">
                         <span className="contact-form__label">Email</span>
                         <input
                             className="contact-form__input"
@@ -72,7 +80,7 @@ function ContactSection() {
                         />
                     </label>
 
-                    <label className="contact-form__field">
+                    <label className="contact-form__field contact-form__stagger-3">
                         <span className="contact-form__label">Message</span>
                         <textarea
                             className="contact-form__input contact-form__textarea"
@@ -83,13 +91,17 @@ function ContactSection() {
                         />
                     </label>
 
-                    <Button
-                        variant="primary"
-                        type="submit"
-                        disabled={status === 'sending'}
-                    >
-                        {status === 'sending' ? 'Sending...' : 'Send Message'}
-                    </Button>
+                    <div className="contact-form__stagger-4">
+                        <Button
+                            variant="primary"
+                            type="submit"
+                            disabled={status === 'sending'}
+                            className={status === 'sending' ? 'btn--loading' : ''}
+                        >
+                            {status === 'sending' && <span className="btn__spinner" />}
+                            {status === 'sending' ? 'Sending' : 'Send Message'}
+                        </Button>
+                    </div>
 
                     {statusMessage && (
                         <p className={`contact-form__status contact-form__status--${status}`}>
@@ -98,7 +110,7 @@ function ContactSection() {
                     )}
                 </form>
 
-                <div className="contact-links">
+                <div ref={linksRef} className="contact-links reveal">
                     <a href="mailto:info@tylerbuilds.net" className="contact-links__item">
                         info@tylerbuilds.net
                     </a>

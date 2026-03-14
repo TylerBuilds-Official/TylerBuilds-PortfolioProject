@@ -27,6 +27,21 @@
     letter-spacing: -0.02em;
     color: var(--text-primary);
     z-index: 110;
+    background: linear-gradient(
+        to right,
+        var(--accent) 50%,
+        var(--text-primary) 50%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.35s ease;
+}
+
+.navbar__brand:hover {
+    background-position: 0% 0;
 }
 
 .navbar__links {
