@@ -4,19 +4,29 @@ export async function handler(event: { httpMethod: string; body: string | null }
     }
 
     try {
-        const { subject, body } = JSON.parse(event.body || "{}");
+        const { subject, body, reply_to } = JSON.parse(event.body || "{}");
 
-        const endpoint = process.env.ENDPOINT;
+        const endpoint  = process.env.ENDPOINT;
         const recipient = process.env.RECIPIENT;
+        const apiKey    = process.env.TB_API_KEY;
 
-        if (!endpoint || !recipient) {
+        if (!endpoint || !recipient || !apiKey) {
             throw new Error("Missing configuration");
         }
 
         const response = await fetch(endpoint, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ subject, body, recipient }),
+            headers: {
+                "Content-Type": "application/json",
+                "X-API-Key": apiKey,
+            },
+            body: JSON.stringify({
+                recipient,
+                subject,
+                body,
+                source: "portfolio_contact",
+                reply_to: reply_to || null,
+            }),
         });
 
         if (!response.ok) {

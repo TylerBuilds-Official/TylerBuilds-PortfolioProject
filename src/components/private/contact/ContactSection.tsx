@@ -28,7 +28,7 @@ function ContactSection() {
         try {
             const response = await fetch('/.netlify/functions/send-email', {
                 method: 'POST',
-                body: JSON.stringify({ subject, body }),
+                body: JSON.stringify({ subject, body, reply_to: email }),
             });
 
             if (!response.ok) throw new Error('Failed to send');
